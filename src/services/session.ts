@@ -3,6 +3,7 @@ import EncryptedStorage from "react-native-encrypted-storage";
 const SESSION_STORAGE_KEY = 'user_session';
 
 export type Session = {
+    userId: string;
     accessToken: string;
     refreshToken: string;
     expiresAt: number;
@@ -12,6 +13,7 @@ function isSession(value: unknown): value is Session {
     return (
         typeof value === 'object' &&
         value !== null &&
+        typeof (value as Session).userId === 'string' &&
         typeof (value as Session).accessToken === 'string' &&
         typeof (value as Session).refreshToken === 'string' &&
         typeof (value as Session).expiresAt === 'number'

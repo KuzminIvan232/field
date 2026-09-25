@@ -33,7 +33,11 @@ export function useSession() {
                         await clearSession();
                         setSession(null);
                         await Navigation.setRoot({
-                            root: { component: { name: ScreenNames.PublicStack } },
+                            root: {
+                                stack: {
+                                    children: [{ component: { name: ScreenNames.Login } }],
+                                },
+                            },
                         });
                         showMessage({
                             message: 'Біометрія',
@@ -48,13 +52,41 @@ export function useSession() {
 
                 setSession(restored);
                 await Navigation.setRoot({
-                    root: { component: { name: ScreenNames.PrivateStack } },
+                    root: {
+                        bottomTabs: {
+                            children: [
+                                {
+                                    stack: {
+                                        children: [{ component: { name: ScreenNames.Dashboard } }],
+                                        options: { bottomTab: { text: 'Dashboard' } },
+                                    },
+                                },
+                                {
+                                    stack: {
+                                        children: [
+                                            {
+                                                component: {
+                                                    name: ScreenNames.Profile,
+                                                    passProps: { userId: restored.userId },
+                                                },
+                                            },
+                                        ],
+                                        options: { bottomTab: { text: 'Profile' } },
+                                    },
+                                },
+                            ],
+                        },
+                    },
                 });
             } catch {
                 await clearSession();
                 setSession(null);
                 await Navigation.setRoot({
-                    root: { component: { name: ScreenNames.PublicStack } },
+                    root: {
+                        stack: {
+                            children: [{ component: { name: ScreenNames.Login } }],
+                        },
+                    },
                 });
                 showMessage({
                     message: 'Access Error',

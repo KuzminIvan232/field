@@ -1,7 +1,5 @@
 export const ScreenNames = {
     Launch: 'Launch',
-    PublicStack: 'PublicStack',
-    PrivateStack: 'PrivateStack',
     Login: 'Login',
     Dashboard: 'Dashboard',
     Profile: 'Profile',
