@@ -1,0 +1,9 @@
+{
+  "common": { "login": "Увійти", "logout": "Вийти", "settings": "Налаштування" },
+  "profile": { "title": "Профіль", "hours": "Години", "rating": "Рейтинг" },
+  "courses_one": "{{count}} курс",
+  "courses_few": "{{count}} курси",
+  "courses_many": "{{count}} курсів",
+  "courses_other": "{{count}} курсів",
+  "greeting": "Привіт, {{name}}!"
+}

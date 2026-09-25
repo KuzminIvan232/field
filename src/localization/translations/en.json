@@ -1,0 +1,7 @@
+{
+  "common": { "login": "Login", "logout": "Log out", "settings": "Settings" },
+  "profile": { "title": "Profile", "hours": "Hours", "rating": "Rating" },
+  "courses_one": "{{count}} course",
+  "courses_other": "{{count}} courses",
+  "greeting": "Hello, {{name}}!"
+}
