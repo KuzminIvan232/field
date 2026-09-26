@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "17456589377",
+    "project_id": "field-bd310",
+    "storage_bucket": "field-bd310.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17456589377:android:218b2dfa3fa0229fa4f4c0",
+        "android_client_info": {
+          "package_name": "com.field"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ9fWHb10Lnv__DRNiUm4TYYmJ4EZy5EU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

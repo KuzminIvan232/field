@@ -1,12 +1,32 @@
-# Resolve react_native_pods.rb with node to allow for hoisting
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+def node_require(script)
+  # Resolve script with node to allow for hoisting
+  require Pod::Executable.execute_command('node', ['-p',
+    "require.resolve(
+      '#{script}',
+      {paths: [process.argv[1]]},
+    )", __dir__]).strip
+end
+
+node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
+
+# react-native-firebase's Swift Package Manager-resolved Firebase pods don't
+# support static linkage (our default here, no use_frameworks!) — fall back to
+# the classic CocoaPods-based Firebase SDK instead of switching linkage.
+$RNFirebaseDisableSPM = true
 
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
+
+# Firebase's CocoaPods (GoogleUtilities etc.) need module maps to be importable
+# from Swift when building as static libraries.
+use_modular_headers!
+
+setup_permissions([
+  'Camera',
+  'Contacts',
+  'LocationWhenInUse',
+])
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil

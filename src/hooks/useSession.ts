@@ -2,7 +2,7 @@ import { restoreSession, clearSession, Session } from '@services/session';
 import { useEffect, useState } from 'react';
 import { Navigation } from 'react-native-navigation';
 import { ScreenNames } from '@navigation/screenNames';
-import { showMessage } from 'react-native-flash-message';
+import { showAppMessage } from '@services/flashMessage';
 import { loadThemeMode } from '@services/themeStorage';
 import { setThemeMode } from '@store/theme/actions';
 import { loadLang } from '@services/localeStorage';
@@ -39,11 +39,11 @@ export function useSession() {
                                 },
                             },
                         });
-                        showMessage({
-                            message: 'Біометрія',
+                        showAppMessage({
+                            message: 'Biometrics',
                             description: error instanceof BiometricError
                                 ? error.message
-                                : 'Не вдалося підтвердити біометрію',
+                                : 'Failed to verify biometrics',
                             type: 'warning',
                         });
                         return;
@@ -88,7 +88,7 @@ export function useSession() {
                         },
                     },
                 });
-                showMessage({
+                showAppMessage({
                     message: 'Access Error',
                     description: 'Session expired, login again',
                     type: 'warning',

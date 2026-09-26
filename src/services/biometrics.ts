@@ -53,7 +53,7 @@ export const disableBiometrics = () => rnBiometrics.deleteKeys();
 
 export const requireBiometricSignature = async (): Promise<void> => {
     const { success, error } = await rnBiometrics.createSignature({
-        promptMessage: 'Вхід в Aurora',
+        promptMessage: 'Sign in to Aurora',
         payload: SIGN_IN_PAYLOAD,
     });
 

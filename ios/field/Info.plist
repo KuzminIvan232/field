@@ -33,10 +33,14 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Потрібен доступ до камери для сканування документів</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Потрібен доступ до контактів, щоб запросити друга</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Sign in with Face ID</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Потрібна геолокація, щоб показати найближчі курси</string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UIAppFonts</key>

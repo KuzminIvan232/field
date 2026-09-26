@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Navigation } from 'react-native-navigation';
+import AppFlashMessage from '@components/AppFlashMessage';
 import { ScreenNames } from '@navigation/screenNames';
 
 type LoginProps = {
@@ -21,6 +22,7 @@ export default function Login({ componentId }: LoginProps) {
             <Pressable style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Log in</Text>
             </Pressable>
+            <AppFlashMessage />
         </View>
     );
 }

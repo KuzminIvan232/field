@@ -117,3 +117,7 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+// Reads google-services.json and generates the Firebase resources
+// (google_app_id etc.) that @react-native-firebase/app needs at runtime.
+apply plugin: "com.google.gms.google-services"
